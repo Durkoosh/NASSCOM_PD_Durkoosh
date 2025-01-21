@@ -13,10 +13,10 @@ Digital VLSI SoC Design &amp; Planning - VSDIAT 2 week Course
 - [Acknowledgement](#acknowledgement)
 - [References](#references)
 
-## day---1-inception-of-open-source-eda-openlane-and-sky130-pdk
-Task 1
-  1. To run 'picorv32a' design synthesis using OpenLANE flow and generate necessary outputs.
-  2. Calculate the Flop ratio.
+## Day - 1 Inception of Open-Source EDA, OpenLane and Sky130 PDK
+
+  - To run 'picorv32a' design synthesis using OpenLANE flow and generate necessary outputs.
+  - Calculate the Flop ratio.
 
 ```       
 Flop Ratio = Number of D Flip Flops / Total Number of Cells
@@ -56,8 +56,28 @@ exit
 
 
  ```
+
+Screenshots of the above commands ran
+
 ![Screenshot 2025-01-21 230747](https://github.com/user-attachments/assets/eaaeda12-d47b-454e-89a8-21faea1212bd)
 
 ![Screenshot 2025-01-21 230739](https://github.com/user-attachments/assets/2cac9d0b-30ad-4560-a390-5e413fefcd69)
 
+![Screenshot 2025-01-21 233011](https://github.com/user-attachments/assets/14d1f1cc-5b61-47bd-a1e1-2fbd0e8a2d5a)
+
+Screenshots of synthesis statistics report file with required values to calculate flop ratio.
+
+![Screenshot 2025-01-22 000947](https://github.com/user-attachments/assets/e90fea7d-010d-4156-8449-a794a8717aef)
+
+Calculation of Flop Ratio and DFF% from synthesis statistics report file
+
+```
+Flop Ratio = 1613/14876 = 0.108429685
+```
+```
+Percentage of DFF's = 0.108429685 * 100 = 10.84296854%
+
+```
+
+## Day - 2 Good Floorplan Vs Bad Floorplan and Introduction to Library Cells
 
