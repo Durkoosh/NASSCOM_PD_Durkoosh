@@ -81,3 +81,50 @@ Percentage of DFF's = 0.108429685 * 100 = 10.84296854%
 
 ## Day - 2 Good Floorplan Vs Bad Floorplan and Introduction to Library Cells
 
+Implementation :
+
+- Run 'picorv32a' design floorplan using OpenLANE flow and generate necessary outputs.
+- Calculate the die area in microns from the values in floorplan def.
+- Load generated floorplan def in magic tool and explore the floorplan.
+- Run 'picorv32a' design congestion aware placement using OpenLANE flow and generate necessary outputs.
+- Load generated placement def in magic tool and explore the placement.
+  
+```
+Area of die in microns = Die width in microns * Die height in microns
+```
+#### - Run 'picorv32a' design floorplan using OpenLANE flow and generate necessary outputs.
+
+Commands to invoke the OpenLANE flow and perform floorplan
+
+```bash
+# Change directory to openlane flow directory
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# alias docker='docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21'
+# Since we have aliased the long command to 'docker' we can invoke the OpenLANE flow docker sub-system by just running this command
+docker
+```
+```tcl
+# Now that we have entered the OpenLANE flow contained docker sub-system we can invoke the OpenLANE flow in the Interactive mode using the following command
+./flow.tcl -interactive
+
+# Now that OpenLANE flow is open we have to input the required packages for proper functionality of the OpenLANE flow
+package require openlane 0.9
+
+# Now the OpenLANE flow is ready to run any design and initially we have to prep the design creating some necessary files and directories for running a specific design which in our case is 'picorv32a'
+prep -design picorv32a
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+
+# Now we can run floorplan
+run_floorplan
+```
+
+Screenshot of floorplan run
+
+![Screenshot 2025-01-22 022709](https://github.com/user-attachments/assets/6be6f95e-4919-4b08-8fce-3533b225c40d)
+
+#### - Calculate the die area in microns from the values in floorplan def.
+
+Screenshot of contents of floorplan def
