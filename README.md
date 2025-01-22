@@ -128,3 +128,43 @@ Screenshot of floorplan run
 #### - Calculate the die area in microns from the values in floorplan def.
 
 Screenshot of contents of floorplan def
+
+![Screenshot 2025-01-22 085634](https://github.com/user-attachments/assets/8658e00a-a3ce-4b5d-9af7-e0e81012f549)
+
+According to floorplan def
+
+```
+1000 Unit Distance = 1 Micron
+Die width in unit distance = 660685 - 0 = 660685
+Die height in unit distance = 671405 - 0 = 671405
+Distance in microns = Value in Unit Distance/1000
+Die width in microns = 660685/1000 = 660.685 Microns
+Die height in microns = 671405/1000 = 671.405 Microns
+Area of die in microns = 660.685 * 671.405 = 443587.212425 Square Microns
+```
+
+
+Commands to load floorplan def in magic in another terminal
+
+```bash
+# Change directory to path containing generated floorplan def
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/05-01_18-38/results/floorplan/
+
+# Command to load the floorplan def in magic tool
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+```
+
+Screenshots of floorplan def in magic
+
+![Screenshot 2025-01-22 093017](https://github.com/user-attachments/assets/44fd2ea0-37eb-4393-b645-57cfb34e41a7)
+
+Equidistant placement of ports
+
+![Screenshot 2025-01-22 093440](https://github.com/user-attachments/assets/811e55c3-f4e2-4159-a79d-2eb8d289eb79)
+
+Port layer as set through config.tcl
+
+![Screenshot 2025-01-22 093848](https://github.com/user-attachments/assets/a71f2c2a-6856-451e-9e35-052d7af337a3)
+
+![Screenshot 2025-01-22 093905](https://github.com/user-attachments/assets/81a44d73-7937-418b-a9c1-5b62b51aa41d)
+
