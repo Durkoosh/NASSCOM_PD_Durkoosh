@@ -379,4 +379,87 @@ Fall transition time = Time taken for output to fall to 20% - Time taken for out
 
 ![Screenshot 2025-01-23 235134](https://github.com/user-attachments/assets/ab32e134-8953-4816-8252-97fe3d3da612)
 
+```
+Fall transition time = 4.09555 - 4.0536 = 0.04195 ns = 41.95 ps
+```
+
+Rise Cell Delay Calculation
+
+```
+Rise Cell Delay = Time taken for output to rise to 50% - Time taken for input to fall to 50%
+```
+```
+50% of 3.3 V = 1.65 V
+```
+
+50% Screenshots
+
+![Screenshot 2025-01-23 235553](https://github.com/user-attachments/assets/2686db83-0532-469a-8cb6-76f1abe55e79)
+
+![Screenshot 2025-01-23 235601](https://github.com/user-attachments/assets/88c9eff7-d747-404e-a8d9-ffbee4dc9e52)
+
+
+```
+Rise Cell Delay = 2.21144 - 2.15008 = 0.06136 ns = 61.36 ps
+```
+
+Fall Cell Delay Calculation
+
+```
+Fall Cell Delay = Time taken for output to fall to 50% - Time taken for input to rise to 50%
+```
+```
+50% of 3.3 V = 1.65 V
+```
+
+50% Screenshots
+
+![Screenshot 2025-01-23 235334](https://github.com/user-attachments/assets/14478ea2-ba43-4505-85b9-552ca1de7421)
+
+![Screenshot 2025-01-23 235342](https://github.com/user-attachments/assets/304b21cc-88e6-4ae5-a7b0-d80233c0acdc)
+
+
+```
+Fall Cell Delay = 4.07807 - 4.05 = 0.02807 ns = 28.07 ps
+```
+
+#### - Find problem in the DRC section of the old magic tech file for the skywater process and fix them.
+
+Link to Sky130 Periphery rules: [https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html](https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html)
+
+Commands to download and view the corrupted skywater process magic tech file and associated files to perform drc corrections
+
+```bash
+# Change to home directory
+cd
+
+# Command to download the lab files
+wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+
+# Since lab file is compressed command to extract it
+tar xfz drc_tests.tgz
+
+# Change directory into the lab folder
+cd drc_tests
+
+# List all files and directories present in the current directory
+ls -al
+
+# Command to view .magicrc file
+gvim .magicrc
+
+# Command to open magic tool in better graphics
+magic -d XR &
+```
+
+
+Screenshot of .magicrc file
+
+
+
+
+
+
+
+
 
