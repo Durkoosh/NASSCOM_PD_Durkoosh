@@ -301,8 +301,82 @@ Screenshot of created spice file
 #### - Editing the spice model file for analysis through simulation.
 Measuring unit distance in layout grid
 
+![Screenshot 2025-01-23 225518](https://github.com/user-attachments/assets/76b0f485-5997-4164-ae52-3057f0322eff)
+
+Final edited spice file ready for ngspice simulation
+
+![Screenshot 2025-01-23 231211](https://github.com/user-attachments/assets/f7b43236-e97f-4ff9-b6fa-de05f33fb1bb)
+
+#### - Post-layout ngspice simulations.
+
+Commands for ngspice simulation
+
+```bash
+# Command to directly load spice file for simulation to ngspice
+ngspice sky130_inv.spice
+
+# Now that we have entered ngspice with the simulation spice file loaded we just have to load the plot
+plot y vs time a
+```
+
+Screenshots of ngspice run
+
+![Screenshot 2025-01-23 231747](https://github.com/user-attachments/assets/2d217ae8-f8aa-42f2-91a8-8ed6503e5f97)
+
+![Screenshot 2025-01-23 231843](https://github.com/user-attachments/assets/220e65b5-7007-4bed-aef1-b239ef1042ec)
+
+![Screenshot 2025-01-23 231855](https://github.com/user-attachments/assets/62dc6ba0-62fd-475a-af6c-d0d8e077116b)
+
+Rise transition time calculation
 
 
+```
+Rise transition time = Time taken for o/p to rise to 80% - Time taken for o/p to rise to 20%
+```
+```
+20% of the O/P = 660mv
+```
+```
+80% of the O/P = 2.64mv
+```
+20% Screenshots
 
+![Screenshot 2025-01-23 234416](https://github.com/user-attachments/assets/094294a1-9ae1-475c-962c-8c7540653adc)
+
+![Screenshot 2025-01-23 234425](https://github.com/user-attachments/assets/49cf86fc-e9b5-4ac4-8d65-f0a42ff0bcc2)
+
+80% Screenshots
+
+![Screenshot 2025-01-23 234658](https://github.com/user-attachments/assets/1712f0b1-825a-4129-8215-48612908f48c)
+
+![Screenshot 2025-01-23 234706](https://github.com/user-attachments/assets/2356f86f-8b39-4230-8921-e85ab287ccbb)
+
+```
+Rise transition time = 2.2463 - 2.18242 = 0.06388 ns = 63.88 ps
+```
+
+Fall transition time calculation
+
+```
+Fall transition time = Time taken for output to fall to 20% - Time taken for output to fall to 80%
+```
+```
+20% of output = 660 mV
+```
+```
+80% of output = 2.64 V
+```
+
+20% Screenshots
+
+![Screenshot 2025-01-23 234957](https://github.com/user-attachments/assets/9952589a-efa8-432a-8409-d575cea8307f)
+
+![Screenshot 2025-01-23 235008](https://github.com/user-attachments/assets/efec6c72-3734-4dfd-bbf6-cde08eb47c3e)
+
+80% Screenshots
+
+![Screenshot 2025-01-23 235125](https://github.com/user-attachments/assets/090f84a7-360e-4752-aeff-2900404e8d55)
+
+![Screenshot 2025-01-23 235134](https://github.com/user-attachments/assets/ab32e134-8953-4816-8252-97fe3d3da612)
 
 
