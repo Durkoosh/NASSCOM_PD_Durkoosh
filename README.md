@@ -221,5 +221,88 @@ exit
 - Post-layout ngspice simulations.
 - Find problem in the DRC section of the old magic tech file for the skywater process and fix them.
 
+#### - Clone custom inverter standard cell design from github repository
+
+```bash
+# Change directory to openlane
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# Clone the repository with custom inverter design
+git clone https://github.com/nickson-jose/vsdstdcelldesign
+
+# Change into repository directory
+cd vsdstdcelldesign
+
+# Copy magic tech file to the repo directory for easy access
+cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .
+
+# Check contents whether everything is present
+ls
+
+# Command to open custom inverter layout in magic
+magic -T sky130A.tech sky130_inv.mag &
+```
+
+#### - Load the custom inverter layout in magic and explore.
+
+Screenshot of custom inverter layout in magic
+
+![Screenshot 2025-01-23 223808](https://github.com/user-attachments/assets/dc434c18-e4b8-49d6-aa37-f2d6e451f610)
+
+NMOS and PMOS identified
+
+![Screenshot 2025-01-23 223927](https://github.com/user-attachments/assets/5c880a64-8e70-45ff-8193-3e06d7447d1f)
+
+![Screenshot 2025-01-23 224111](https://github.com/user-attachments/assets/ff1d79b9-0735-47be-9257-e5c4c646a77d)
+
+Output Y connectivity to PMOS and NMOS drain verified
+
+![Screenshot 2025-01-23 224242](https://github.com/user-attachments/assets/0a6fd3bf-926f-4808-99a6-26a5a5a7026d)
+
+PMOS source connectivity to VDD (here VPWR) verified
+
+![Screenshot 2025-01-23 224316](https://github.com/user-attachments/assets/4ea74927-04f2-4ce0-8f43-e696ad9d8752)
+
+NMOS source connectivity to VSS (here VGND) verified
+
+![Screenshot 2025-01-23 224348](https://github.com/user-attachments/assets/f5e864ac-81db-4008-a1f0-a846cf6dbf98)
+
+Deleting necessary layout part to see DRC error
+
+![Screenshot 2025-01-23 224731](https://github.com/user-attachments/assets/e74a611a-3cd7-4770-aa95-2d8c22318f46)
+
+
+#### 3. Spice extraction of inverter in magic.
+
+Commands for spice extraction of the custom inverter layout to be used in tkcon window of magic
+
+```tcl
+# Check current directory
+pwd
+
+# Extraction command to extract to .ext format
+extract all
+
+# Before converting ext to spice this command enable the parasitic extraction also
+ext2spice cthresh 0 rthresh 0
+
+# Converting to ext to spice
+ext2spice
+```
+
+Screenshot of tkcon window after running above commands
+
+![Screenshot 2025-01-23 225035](https://github.com/user-attachments/assets/213fa60a-c1b7-4200-a62f-c225586fafda)
+
+Screenshot of created spice file
+
+![Screenshot 2025-01-23 225143](https://github.com/user-attachments/assets/d71c4d72-d779-484c-acda-73b9c2cc2191)
+
+#### - Editing the spice model file for analysis through simulation.
+Measuring unit distance in layout grid
+
+
+
+
 
 
