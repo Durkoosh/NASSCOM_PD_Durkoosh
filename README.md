@@ -168,14 +168,58 @@ Port layer as set through config.tcl
 
 ![Screenshot 2025-01-22 093905](https://github.com/user-attachments/assets/81a44d73-7937-418b-a9c1-5b62b51aa41d)
 
-#### - Load generated placement def in magic tool and explore the placement.
+
+Command to run placement
+
+```tcl
+# Congestion aware placement by default
+run_placement
+```
+
+Screenshots of placement run
+
+![Screenshot 2025-01-23 215141](https://github.com/user-attachments/assets/32a32588-e71e-4868-8cbb-e3eed29040dc)
+
+#### 5. Load generated placement def in magic tool and explore the placement.
+
 Commands to load placement def in magic in another terminal
 
+```bash
 # Change directory to path containing generated placement def
 cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/05-01_18-52/results/placement/
 
 # Command to load the placement def in magic tool
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+```
+
 Screenshots of floorplan def in magic
+
+![Screenshot 2025-01-23 221505](https://github.com/user-attachments/assets/bf0937f2-a310-424e-90ee-9c11779ef8b3)
+
+Standard cells legally placed 
+
+![Screenshot 2025-01-23 220900](https://github.com/user-attachments/assets/3c0060c8-4cd9-47e5-9a26-3161334ef9eb)
+
+Commands to exit from current run
+
+```tcl
+# Exit from OpenLANE flow
+exit
+
+# Exit from OpenLANE flow docker sub-system
+exit
+```
+
+## Day - 3 Design Library Cells using Magic Layout and Ngspice Characterization
+
+### Implementation
+
+- Clone custom inverter standard cell design from github repository: [Standard cell design and characterization using OpenLANE flow](https://github.com/nickson-jose/vsdstdcelldesign).
+- Load the custom inverter layout in magic and explore.
+- Spice extraction of inverter in magic.
+- Editing the spice model file for analysis through simulation.
+- Post-layout ngspice simulations.
+- Find problem in the DRC section of the old magic tech file for the skywater process and fix them.
+
 
 
